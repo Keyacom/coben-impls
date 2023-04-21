@@ -1,0 +1,6 @@
+* text=auto
+
+*.lock text -diff
+package-lock.json text -diff
+*.rs text eol=lf
+*.toml text eol=lf
