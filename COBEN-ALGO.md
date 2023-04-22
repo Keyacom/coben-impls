@@ -4,11 +4,30 @@
 It determines the relative chance of being eliminated next based on the competitors'
 current scores and what scores they can gain after the next event.
 
-<!--
 ## Description
 
-TODO: Description
--->
+1. Getting input
+    1. Let $S$ be the list of current scores, or a table, with the keys being
+    the contestants' names, and the values being the scores.
+    2. Let $N$ be the list of scores for the next event.
+        - If the scores are not static, let $N$ be $N_i = m$, where $m$ is the
+        maximum score that can be received in this event.
+    3. Assert that $S$ and $N$ have equal length. If the assertion fails, exit
+    early.
+2. Calculating the COBEN
+    1. Setup
+        1. Let $r$ be $\bar{S} + \bar{N}$, with the top bar denoting arithmetic
+        mean of the list's (or table's) values.
+        2. Let $D$ be the list (or table) of inverse differences, defined as
+        $D_i = \max\left(0, \dfrac{1}{S_i} - \dfrac{1}{r}\right)$.
+        3. Let $C$ be an empty list (or table).
+    2. For each $s$ of $S$:
+        1. If $s \ge r$, append immunity for
+        $\left\lfloor\dfrac{s}{r}\right\rfloor$ events to $C$.
+        2. Otherwise, append COBEN equal to
+        $\dfrac{100\%}{s \times \sum D_i}$ to $C$. ($\sum D_i$ is the sum of
+        $D$'s values.)
+3. Output $C$.
 
 ## Representation
 
