@@ -25,8 +25,12 @@ current scores and what scores they can gain after the next event.
         1. If $s \ge r$, append immunity for
         $\left\lfloor\dfrac{s}{r}\right\rfloor$ events to $C$.
         2. Otherwise, append COBEN equal to
-        $\dfrac{100\%}{s \times \sum D_i}$ to $C$. ($\sum D_i$ is the sum of
+        $\dfrac{100\\\%}{s \times \sum D_i}$ to $C$. ($\sum D_i$ is the sum of
         $D$'s values.)
+        <!--
+        Double backslash is required due to the fact the GFM parser interprets
+        escapes in math expressions.
+        -->
 3. Output $C$.
 
 ## Representation
